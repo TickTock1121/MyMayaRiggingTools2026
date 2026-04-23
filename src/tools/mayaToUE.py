@@ -28,7 +28,7 @@ class MayatoUEWidget(MayaWidget):
         self.setWindowTitle("Maya to Unreal Engine")
 
         self.masterLayout = QVBoxLayout()
-        self.setLayout(self.masterlayout)
+        self.setLayout(self.masterLayout)
 
         meshSelectLayout = QHBoxLayout()
         self.masterLayout.addLayout(meshSelectLayout)
@@ -38,11 +38,11 @@ class MayatoUEWidget(MayaWidget):
         meshSelectLayout.addWidget(self.meshSelectLineEdit)
         meshSelectBtn = QPushButton("<<<")
         meshSelectLayout.addWidget(meshSelectBtn)
-        meshSelectBtn.clicked.connect(self.meshSelectBtnClicked)
+        meshSelectBtn.clicked.connect(self.MeshSelectBtnClicked)
 
-        def MeshSelectBtnClicked(self):
-            self.mayaToUE.setSelectedAsMesh()
-            self.meshSelectLineEdit.setText(",".join(self.mayaToUE.meshes))
+    def MeshSelectBtnClicked(self):
+        self.mayaToUE.setSelectedAsMesh()
+        self.meshSelectLineEdit.setText(",".join(self.mayaToUE.meshes))
 
 
 
@@ -50,7 +50,7 @@ class MayatoUEWidget(MayaWidget):
         return "b484e2e0c10199b55dc3b0e3273fdbb38bca8ddfd80dfc15d8fca0d6df3a7e40189d2850b34152aac0bc2ec93b66cdaf"
     
 def Run():
-    MayatoUEWidget = MayatoUEWidget()
-    MayatoUEWidget.show()
+    mayatoUEWidget = MayatoUEWidget()
+    mayatoUEWidget.show()
 
-    Run()
+Run()
